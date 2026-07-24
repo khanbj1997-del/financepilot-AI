@@ -24,8 +24,11 @@ function analysisModeLabel(source) {
 }
 
 function isUserFacingBanner(text) {
-  const t = String(text || '').toLowerCase()
+  const raw = String(text || '')
+  const t = raw.toLowerCase()
   if (!t.trim()) return false
+  // AI 폴백 안내는 사용자에게 보여준다
+  if (raw.includes('규칙 기반 결과를 표시')) return true
   if (t.includes('gemini') || t.includes('openai') || t.includes('groq')) return false
   if (t.includes('analysis_provider') || t.includes('quota')) return false
   if (t.includes('http 429') || t.includes('resource_exhausted')) return false

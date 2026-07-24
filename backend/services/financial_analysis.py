@@ -32,7 +32,7 @@ from utils.number_format import (
 logger = logging.getLogger(__name__)
 
 # 캐시 무효화용. 표시 포맷·스냅샷 display 필드 반영.
-ANALYSIS_SCHEMA_VERSION = "v7"
+ANALYSIS_SCHEMA_VERSION = "v8-slim"
 
 REQUIRED_KEYS = (
     "overall_judgment",
@@ -1032,55 +1032,33 @@ yoy_comparisons만 전년 동기. 분기·반기·연간 혼용 금지.
 
 
 def _user_prompt(company: Company, industry_ctx: dict[str, Any], snapshot: dict[str, Any]) -> str:
+    """토큰 절약용 축소 프롬프트 (무료 Groq TPD 한도 대비)."""
+    profile = industry_ctx.get("profile") or {}
     return json.dumps(
         {
             "company": {
-                "company_id": company.company_id,
                 "company_name": company.company_name,
                 "industry": company.industry,
             },
-            "industry_context": {
+            "industry": {
                 "prompt_text": industry_ctx.get("prompt_text"),
-                "prompt_hints": industry_ctx.get("prompt_hints"),
-                "profile": {
-                    "profile_key": (industry_ctx.get("profile") or {}).get("profile_key"),
-                    "capital_intensity": (industry_ctx.get("profile") or {}).get("capital_intensity"),
-                    "liquidity_note": (industry_ctx.get("profile") or {}).get("liquidity_note"),
-                    "profitability_note": (industry_ctx.get("profile") or {}).get("profitability_note"),
-                    "revenue_structure": (industry_ctx.get("profile") or {}).get("revenue_structure"),
-                    "metric_hints": (industry_ctx.get("profile") or {}).get("metric_hints"),
-                    "analysis_rules": (industry_ctx.get("profile") or {}).get("analysis_rules"),
-                },
+                "capital_intensity": profile.get("capital_intensity"),
+                "liquidity_note": profile.get("liquidity_note"),
+                "profitability_note": profile.get("profitability_note"),
             },
             "financial_snapshot": {
                 "period": snapshot.get("period"),
                 "period_label": snapshot.get("period_label"),
-                "raw_metrics": snapshot.get("raw_metrics") or snapshot.get("latest_metrics"),
                 "display_metrics": snapshot.get("display_metrics"),
                 "growth_yoy": snapshot.get("growth_yoy") or snapshot.get("growth"),
                 "yoy_comparisons": snapshot.get("yoy_comparisons"),
-                "same_kind_sequential": snapshot.get("same_kind_sequential"),
-                "metric_relations": snapshot.get("metric_relations"),
                 "growth_stage_hint": snapshot.get("growth_stage_hint"),
                 "industry_analysis_context": snapshot.get("industry_analysis_context"),
-                "external_evidence": snapshot.get("external_evidence"),
                 "data_gaps": snapshot.get("data_gaps"),
-                "analysis_flow": snapshot.get("analysis_flow"),
-                "conclusion_first_rules": snapshot.get("conclusion_first_rules"),
-                "series_by_kind": snapshot.get("series_by_kind"),
-                "comparison_rules": snapshot.get("comparison_rules"),
-                "trend_points": snapshot.get("trend_points"),
-                "ai_instructions": snapshot.get("ai_instructions"),
+                "external_evidence": {
+                    "web_search_enabled": False,
+                },
             },
-            "writing_rules": [
-                "종합 판단: 결론 먼저, '확인 필요'만으로 끝내지 말 것",
-                "업종: industry_analysis_context를 구체 문장에 반영 ('고려 필요'만 금지)",
-                "외부 검색 미연결: 실적 원인을 추측하지 말 것",
-                "이익의 질: 동행·괴리로 해석, 양호=질 좋음 단순 연결 금지",
-                "숫자는 display_metrics 사용 (원시 큰 정수 금지, 비율은 반드시 %)",
-                "한자·중국어·일본어 금지",
-                "자연스러운 한국어만",
-            ],
         },
         ensure_ascii=False,
     )
@@ -1188,6 +1166,7 @@ def analyze_company(
     notice, message = _split_status_text(fin_message)
     source = "rule"
     analysis: dict[str, Any]
+    fallback_notice: str | None = None
 
     if settings.use_groq_analysis:
         client = GroqClient()
@@ -1203,10 +1182,21 @@ def analyze_company(
                 logger.warning("Groq 분석 실패, rule 폴백: %s", exc)
                 analysis = build_rule_based_analysis(company, indicators, industry_ctx)
                 source = "rule"
+                err = str(exc)
+                if "429" in err or "Rate limit" in err or "TPD" in err:
+                    fallback_notice = (
+                        "AI 분석 일일 사용량 한도에 도달해 규칙 기반 결과를 표시합니다. "
+                        "한도 리셋 후 다시 시도해 주세요."
+                    )
+                else:
+                    fallback_notice = (
+                        "AI 분석을 일시적으로 불러오지 못해 규칙 기반 결과를 표시합니다."
+                    )
         else:
             logger.warning("ANALYSIS_PROVIDER=groq 이지만 GROQ_API_KEY 미설정 - rule 사용")
             analysis = build_rule_based_analysis(company, indicators, industry_ctx)
             source = "rule"
+            fallback_notice = "AI API 키가 없어 규칙 기반 결과를 표시합니다."
     elif settings.use_gemini_analysis:
         client = GeminiClient()
         if client.has_key:
@@ -1248,6 +1238,9 @@ def analyze_company(
         source = "rule"
 
     save_cache(session, company_id=company_id, cache_key=key, source=source, result=analysis)
+
+    if fallback_notice:
+        notice = f"{notice} | {fallback_notice}" if notice else fallback_notice
 
     return {
         "company_id": company.company_id,

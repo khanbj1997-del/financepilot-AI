@@ -56,7 +56,8 @@ class Settings:
 
     @property
     def groq_model(self) -> str:
-        return _clean_env("GROQ_MODEL", "llama-3.3-70b-versatile")
+        # 70B는 무료 티어 일일 토큰(TPD)을 쉽게 소진 → 기본은 경량 모델
+        return _clean_env("GROQ_MODEL", "llama-3.1-8b-instant")
 
     @property
     def database_url(self) -> str:
