@@ -1,9 +1,10 @@
-# 최소 실행에 필요한 것
+# FinancePilot AI — backend
+# Render/배포 환경은 Python 3.12 권장 (runtime.txt). Python 3.14는 SQLModel과 충돌할 수 있음.
+
 fastapi==0.115.6
 uvicorn[standard]==0.34.0
-
-# 아래는 데이터 저장·API 연동을 붙일 때 쓰는 것들 (미리 설치해 두면 편함)
 sqlmodel==0.0.22
+pydantic>=2.7.0,<2.11.0
 requests==2.32.3
 python-dotenv==1.0.1
 

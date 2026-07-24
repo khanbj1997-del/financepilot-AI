@@ -1,6 +1,5 @@
 """인기 테마·테마별 추천 종목·(향후)시장데이터 모델."""
 from datetime import date, datetime
-from typing import Optional
 
 from sqlalchemy import UniqueConstraint
 from sqlmodel import Field, SQLModel
@@ -11,7 +10,7 @@ class Theme(SQLModel, table=True):
     theme_name: str = Field(max_length=100, index=True)
     score: float = Field(default=0.0)
     score_date: date = Field(default_factory=date.today, index=True)
-    description: Optional[str] = Field(default=None, max_length=500)
+    description: str | None = Field(default=None, max_length=500)
     # rule_seed | rule_db — 실시간 시장/검색 API가 아님을 구분
     source: str = Field(default="rule_seed", max_length=32)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
@@ -22,7 +21,7 @@ class ThemeStock(SQLModel, table=True):
         UniqueConstraint("theme_id", "company_id", name="uq_theme_stock"),
     )
 
-    id: Optional[int] = Field(default=None, primary_key=True)
+    id: int | None = Field(default=None, primary_key=True)
     theme_id: str = Field(index=True, max_length=32)
     company_id: str = Field(index=True, max_length=16)
     relevance_score: float = Field(default=0.0)
@@ -36,8 +35,8 @@ class MarketData(SQLModel, table=True):
         UniqueConstraint("company_id", "trade_date", name="uq_market_data_day"),
     )
 
-    id: Optional[int] = Field(default=None, primary_key=True)
+    id: int | None = Field(default=None, primary_key=True)
     company_id: str = Field(index=True, max_length=16)
     trade_date: date = Field(index=True, description="PRD MarketData.date")
-    volume: Optional[float] = Field(default=None)
-    trading_value: Optional[float] = Field(default=None)
+    volume: float | None = Field(default=None)
+    trading_value: float | None = Field(default=None)

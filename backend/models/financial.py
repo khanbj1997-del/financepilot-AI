@@ -1,6 +1,5 @@
 """재무 데이터 SQLModel."""
 from datetime import datetime
-from typing import Optional
 
 from sqlalchemy import Column, UniqueConstraint
 from sqlmodel import Field, SQLModel, Text
@@ -19,7 +18,7 @@ class FinancialData(SQLModel, table=True):
         ),
     )
 
-    id: Optional[int] = Field(default=None, primary_key=True)
+    id: int | None = Field(default=None, primary_key=True)
     company_id: str = Field(index=True, max_length=16)
     period: str = Field(index=True, max_length=8, description="기간 예: 2024, 2025Q3")
     reprt_code: str = Field(default="11011", max_length=5)
