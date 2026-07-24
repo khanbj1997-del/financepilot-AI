@@ -7,9 +7,21 @@ import os
 _ENV_PATH = Path(__file__).resolve().parent / ".env"
 
 
+def _clean_env(name: str, default: str = "") -> str:
+    """환경변수 읽기. 양끝 공백·따옴표 제거 (Render 붙여넣기 실수 방지)."""
+    value = (os.getenv(name) or default).strip()
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in {'"', "'"}:
+        value = value[1:-1].strip()
+    return value
+
+
 def reload_env() -> None:
-    """backend/.env 를 다시 로드한다. (.env 수정 후에도 재시작 없이 반영)"""
-    load_dotenv(_ENV_PATH, override=True)
+    """
+    backend/.env 를 로드한다.
+    override=False: 이미 설정된 OS/Render Environment 값이 우선한다.
+    (로컬 .env는 없는 키만 채움)
+    """
+    load_dotenv(_ENV_PATH, override=False)
 
 
 reload_env()
@@ -20,35 +32,35 @@ class Settings:
 
     @property
     def dart_api_key(self) -> str:
-        return (os.getenv("DART_API_KEY") or "").strip()
+        return _clean_env("DART_API_KEY")
 
     @property
     def openai_api_key(self) -> str:
-        return (os.getenv("OPENAI_API_KEY") or "").strip()
+        return _clean_env("OPENAI_API_KEY")
 
     @property
     def openai_model(self) -> str:
-        return (os.getenv("OPENAI_MODEL") or "gpt-4o-mini").strip()
+        return _clean_env("OPENAI_MODEL", "gpt-4o-mini")
 
     @property
     def gemini_api_key(self) -> str:
-        return (os.getenv("GEMINI_API_KEY") or "").strip()
+        return _clean_env("GEMINI_API_KEY")
 
     @property
     def gemini_model(self) -> str:
-        return (os.getenv("GEMINI_MODEL") or "gemini-2.0-flash").strip()
+        return _clean_env("GEMINI_MODEL", "gemini-2.0-flash")
 
     @property
     def groq_api_key(self) -> str:
-        return (os.getenv("GROQ_API_KEY") or "").strip()
+        return _clean_env("GROQ_API_KEY")
 
     @property
     def groq_model(self) -> str:
-        return (os.getenv("GROQ_MODEL") or "llama-3.3-70b-versatile").strip()
+        return _clean_env("GROQ_MODEL", "llama-3.3-70b-versatile")
 
     @property
     def database_url(self) -> str:
-        return (os.getenv("DATABASE_URL") or "sqlite:///app.db").strip()
+        return _clean_env("DATABASE_URL", "sqlite:///app.db")
 
     @property
     def analysis_provider(self) -> str:
@@ -59,7 +71,7 @@ class Settings:
         - gemini : Google Gemini API (유지·미사용 가능)
         - openai : OpenAI API (유지·비권장)
         """
-        value = (os.getenv("ANALYSIS_PROVIDER") or "rule").strip().lower()
+        value = _clean_env("ANALYSIS_PROVIDER", "rule").lower()
         return value if value in {"rule", "groq", "gemini", "openai"} else "rule"
 
     @property
