@@ -9,3 +9,6 @@ frontend/dist/
 .cursor/
 *.pyc
 .vite/
+
+.vercel
+.env*
