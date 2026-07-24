@@ -1,0 +1,10 @@
+# 최소 실행에 필요한 것
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+
+# 아래는 데이터 저장·API 연동을 붙일 때 쓰는 것들 (미리 설치해 두면 편함)
+sqlmodel==0.0.22
+requests==2.32.3
+python-dotenv==1.0.1
+
+# 참고: Groq/Gemini/OpenAI 분석 클라이언트는 requests만 사용 (추가 LLM SDK 불필요)

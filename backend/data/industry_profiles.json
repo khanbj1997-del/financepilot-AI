@@ -1,0 +1,241 @@
+{
+  "_meta": {
+    "description": "업종별 재무지표 특성 참고 데이터 (정적). 절대 기준이 아니며 AI 해석 보조용.",
+    "version": "1.0",
+    "disclaimer": "일반적 경향 참고용. 단정적 평가에 사용하지 말 것."
+  },
+  "default": {
+    "industry": "일반",
+    "capital_intensity": "중간",
+    "revenue_structure": "제품·서비스 매출 혼합",
+    "liquidity_note": "유동비율은 업종·운전자본 주기에 따라 해석이 달라짐",
+    "profitability_note": "영업이익률은 경쟁 강도·원가 구조에 따라 편차가 큼",
+    "metric_hints": {
+      "debt_ratio": {
+        "typical_range": "50~150%",
+        "interpretation": "자본 대비 부채 부담. 절대 수치만으로 위험/안전 단정 금지."
+      },
+      "current_ratio": {
+        "typical_range": "100~200%",
+        "interpretation": "단기 지급능력 참고. 100% 미만이어도 업종 특성상 가능할 수 있음."
+      },
+      "operating_margin": {
+        "typical_range": "5~15%",
+        "interpretation": "본업 수익성. 경기·원가 변동과 함께 추세로 볼 것."
+      },
+      "roe": {
+        "typical_range": "8~15%",
+        "interpretation": "자기자본 수익률. 레버리지·일회성 손익 영향 확인."
+      }
+    },
+    "analysis_rules": [
+      "일반 재무 기준 + 업종 특성 + 과거 3~5년 추세를 함께 언급한다.",
+      "수치만으로 '위험하다/안전하다'고 단정하지 않는다.",
+      "데이터가 없으면 추측하지 않고 없다고 명시한다."
+    ]
+  },
+  "반도체": {
+    "industry": "반도체",
+    "capital_intensity": "높음",
+    "revenue_structure": "메모리·시스템 반도체 제품 매출, 사이클 민감",
+    "liquidity_note": "대규모 설비투자로 현금·부채 변동이 큼. 유동비율만으로 판단하기 어려움",
+    "profitability_note": "업황(메모리 가격)에 따라 영업이익률 급변. 단일 연도보다 사이클 추세 중요",
+    "metric_hints": {
+      "debt_ratio": {
+        "typical_range": "20~80%",
+        "interpretation": "설비투자 재원으로 부채가 늘 수 있음. 투자 사이클과 함께 해석."
+      },
+      "current_ratio": {
+        "typical_range": "150~300%",
+        "interpretation": "재고·현금 비중이 시기별로 크게 변함."
+      },
+      "operating_margin": {
+        "typical_range": "-10~30%",
+        "interpretation": "다운사이클에서 적자, 업사이클에서 고수익이 흔함."
+      },
+      "roe": {
+        "typical_range": "-5~20%",
+        "interpretation": "사이클·감가상각·투자 강도에 민감."
+      }
+    },
+    "analysis_rules": [
+      "반도체는 실적 사이클이 크므로 1년 수치보다 3~5년 추세를 우선한다.",
+      "영업이익 급증/급감은 업황 영향 가능성을 먼저 언급한다.",
+      "FCF와 설비투자(capex) 부담을 함께 본다."
+    ]
+  },
+  "인터넷서비스": {
+    "industry": "인터넷서비스",
+    "capital_intensity": "낮음~중간",
+    "revenue_structure": "광고·커머스·콘텐츠·클라우드 등 플랫폼 매출",
+    "liquidity_note": "유형자산 비중은 낮고 현금·금융자산 비중이 상대적으로 높은 편",
+    "profitability_note": "성장 투자기에는 영업이익률이 낮아질 수 있음",
+    "metric_hints": {
+      "debt_ratio": {
+        "typical_range": "20~100%",
+        "interpretation": "재무 레버리지보다 영업 레버리지·경쟁 투자가 중요할 수 있음."
+      },
+      "current_ratio": {
+        "typical_range": "100~250%",
+        "interpretation": "단기 유동성은 대체로 양호한 편이나 자회사·투자 구조 확인."
+      },
+      "operating_margin": {
+        "typical_range": "5~25%",
+        "interpretation": "플랫폼 성숙도에 따라 차이. 마케팅비·인건비 추세와 함께 해석."
+      },
+      "roe": {
+        "typical_range": "5~20%",
+        "interpretation": "일회성 지분법손익·평가손익 영향 여부 확인."
+      }
+    },
+    "analysis_rules": [
+      "유형자산 중심 제조업 기준으로 부채·유동성을 과하게 해석하지 않는다.",
+      "성장 투자(마케팅·R&D)와 수익성 트레이드오프를 언급한다."
+    ]
+  },
+  "자동차": {
+    "industry": "자동차",
+    "capital_intensity": "높음",
+    "revenue_structure": "완성차 판매 + 금융·부품 등",
+    "liquidity_note": "재고·매출채권·할부금융 구조로 운전자본이 큼",
+    "profitability_note": "환율·원자재·판매 mix에 따라 마진 변동",
+    "metric_hints": {
+      "debt_ratio": {
+        "typical_range": "80~200%",
+        "interpretation": "금융 자회사 연결 시 부채비율이 높게 보일 수 있음. 본업/금융 구분 주의."
+      },
+      "current_ratio": {
+        "typical_range": "100~150%",
+        "interpretation": "운전자본 사이클과 함께 해석."
+      },
+      "operating_margin": {
+        "typical_range": "3~10%",
+        "interpretation": "완성차 마진은 상대적으로 얇은 편. 볼륨·ASP·비용 통제가 핵심."
+      },
+      "roe": {
+        "typical_range": "5~15%",
+        "interpretation": "연결 범위·금융 손익 영향을 고려."
+      }
+    },
+    "analysis_rules": [
+      "연결 재무에서 금융부문 영향으로 부채비율이 높아 보일 수 있음을 고지한다.",
+      "영업이익률은 제조업 평균 대비 낮아도 업종 내에서는 정상 범위일 수 있다."
+    ]
+  },
+  "화학": {
+    "industry": "화학",
+    "capital_intensity": "높음",
+    "revenue_structure": "기초·정밀화학 제품, 스프레드(제품-원료) 민감",
+    "liquidity_note": "원료·제품 재고 비중이 큼",
+    "profitability_note": "유가·납사 스프레드에 따라 영업이익 변동 큼",
+    "metric_hints": {
+      "debt_ratio": {
+        "typical_range": "40~120%",
+        "interpretation": "설비·증설 투자 시 부채 증가 가능."
+      },
+      "current_ratio": {
+        "typical_range": "100~180%",
+        "interpretation": "재고 평가·원료가 변동과 함께 볼 것."
+      },
+      "operating_margin": {
+        "typical_range": "2~12%",
+        "interpretation": "스프레드 악화 시 급락 가능. 추세 비교 필수."
+      },
+      "roe": {
+        "typical_range": "3~12%",
+        "interpretation": "사이클 저점/고점에 따라 편차 큼."
+      }
+    },
+    "analysis_rules": [
+      "화학은 스프레드·업황 사이클을 먼저 언급한다.",
+      "단일 연도 마진으로 구조적 수익성을 단정하지 않는다."
+    ]
+  },
+  "배터리": {
+    "industry": "배터리",
+    "capital_intensity": "매우 높음",
+    "revenue_structure": "EV·ESS용 이차전지 셀/소재",
+    "liquidity_note": "증설·고객 계약에 따른 운전자본·투자 부담이 큼",
+    "profitability_note": "초기 가동·판가·메탈가에 따라 적자~흑자 전환이 빈번",
+    "metric_hints": {
+      "debt_ratio": {
+        "typical_range": "50~150%",
+        "interpretation": "대규모 capex로 부채·자본 조달이 병행되는 경우가 많음."
+      },
+      "current_ratio": {
+        "typical_range": "100~200%",
+        "interpretation": "재고·선수금·고객 선수 구조 확인."
+      },
+      "operating_margin": {
+        "typical_range": "-15~15%",
+        "interpretation": "성장기 적자가 나타날 수 있음. 가동률·ASP 추세와 함께 해석."
+      },
+      "roe": {
+        "typical_range": "-10~15%",
+        "interpretation": "투자 회수 전 단계에서는 낮거나 음수일 수 있음."
+      }
+    },
+    "analysis_rules": [
+      "배터리 성장기는 단기 수익성보다 투자·수주·가동률 추세를 함께 본다.",
+      "적자만으로 즉시 위험 단정하지 말고 추세·투자 단계를 설명한다."
+    ]
+  },
+  "바이오": {
+    "industry": "바이오",
+    "capital_intensity": "중간~높음",
+    "revenue_structure": "의약품·바이오시밀러·CMO 등",
+    "liquidity_note": "R&D·임상 현금 소요가 큼. 현금성자산 중요",
+    "profitability_note": "파이프라인 단계·일회성 기술이전 수익에 따라 변동",
+    "metric_hints": {
+      "debt_ratio": {
+        "typical_range": "20~100%",
+        "interpretation": "연구개발 자금 조달 방식(자본/부채)에 따라 차이."
+      },
+      "current_ratio": {
+        "typical_range": "150~400%",
+        "interpretation": "현금 버퍼가 중요. 낮으면 자금 조달 일정 확인 필요."
+      },
+      "operating_margin": {
+        "typical_range": "-20~30%",
+        "interpretation": "제품화 이전에는 적자가 흔함. 매출 구성(제품 vs 마일스톤) 구분."
+      },
+      "roe": {
+        "typical_range": "-15~20%",
+        "interpretation": "일회성 수익 제외한 본업 추세를 우선."
+      }
+    },
+    "analysis_rules": [
+      "바이오는 R&D·파이프라인 단계가 재무 해석에 중요함을 고지한다.",
+      "일회성 기술이전 수익을 경상 수익성과 구분한다."
+    ]
+  },
+  "철강": {
+    "industry": "철강",
+    "capital_intensity": "매우 높음",
+    "revenue_structure": "철강 제품 판매, 원자재·중국 시황 민감",
+    "liquidity_note": "재고·원자재 가격 변동이 운전자본에 큰 영향",
+    "profitability_note": "철광석·석탄·판매가 스프레드에 따라 마진 급변",
+    "metric_hints": {
+      "debt_ratio": {
+        "typical_range": "40~120%",
+        "interpretation": "설비 집약 산업으로 일정 부채는 일반적일 수 있음."
+      },
+      "current_ratio": {
+        "typical_range": "100~180%",
+        "interpretation": "재고 평가 손익과 함께 해석."
+      },
+      "operating_margin": {
+        "typical_range": "2~12%",
+        "interpretation": "시황 민감. 다년 평균·추세가 단일 연도보다 중요."
+      },
+      "roe": {
+        "typical_range": "3~12%",
+        "interpretation": "업황 고점/저점 왜곡 주의."
+      }
+    },
+    "analysis_rules": [
+      "철강은 원자재·시황 사이클을 먼저 언급한다.",
+      "한 해의 마진만으로 구조적 경쟁력을 단정하지 않는다."
+    ]
+  }
+}

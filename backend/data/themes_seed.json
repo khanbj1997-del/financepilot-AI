@@ -1,0 +1,86 @@
+[
+  {
+    "theme_id": "semiconductor",
+    "theme_name": "반도체",
+    "description": "메모리·시스템 반도체 및 관련 공급망",
+    "base_score": 90,
+    "industries": ["반도체", "전자·전기"],
+    "stocks": [
+      {"corp_code": "00126380", "relevance": 100},
+      {"corp_code": "00164779", "relevance": 95},
+      {"corp_code": "00161383", "relevance": 88},
+      {"corp_code": "00160843", "relevance": 85},
+      {"corp_code": "00369657", "relevance": 82}
+    ]
+  },
+  {
+    "theme_id": "battery",
+    "theme_name": "2차전지",
+    "description": "배터리·소재 및 전기차 에너지 저장",
+    "base_score": 85,
+    "industries": ["배터리", "2차전지", "화학"],
+    "stocks": [
+      {"corp_code": "00126362", "relevance": 100},
+      {"corp_code": "01515323", "relevance": 96},
+      {"corp_code": "00356361", "relevance": 90},
+      {"corp_code": "00536541", "relevance": 86},
+      {"corp_code": "01160363", "relevance": 84}
+    ]
+  },
+  {
+    "theme_id": "internet",
+    "theme_name": "인터넷·플랫폼",
+    "description": "검색·메신저·콘텐츠 플랫폼",
+    "base_score": 80,
+    "industries": ["인터넷서비스", "소프트웨어·IT"],
+    "stocks": [
+      {"corp_code": "00266961", "relevance": 100},
+      {"corp_code": "00258801", "relevance": 95},
+      {"corp_code": "01244601", "relevance": 88},
+      {"corp_code": "00126186", "relevance": 84},
+      {"corp_code": "00298270", "relevance": 80}
+    ]
+  },
+  {
+    "theme_id": "auto",
+    "theme_name": "자동차",
+    "description": "완성차 및 모빌리티",
+    "base_score": 75,
+    "industries": ["자동차"],
+    "stocks": [
+      {"corp_code": "00164742", "relevance": 100},
+      {"corp_code": "00106641", "relevance": 95},
+      {"corp_code": "00164788", "relevance": 90},
+      {"corp_code": "00161125", "relevance": 84},
+      {"corp_code": "01042775", "relevance": 82}
+    ]
+  },
+  {
+    "theme_id": "bio",
+    "theme_name": "바이오·제약",
+    "description": "바이오의약품·제약",
+    "base_score": 70,
+    "industries": ["바이오", "바이오·제약"],
+    "stocks": [
+      {"corp_code": "00413046", "relevance": 100},
+      {"corp_code": "00877059", "relevance": 96},
+      {"corp_code": "00145109", "relevance": 88},
+      {"corp_code": "00828497", "relevance": 85},
+      {"corp_code": "00427483", "relevance": 82}
+    ]
+  },
+  {
+    "theme_id": "steel",
+    "theme_name": "철강·소재",
+    "description": "철강 및 기초 소재",
+    "base_score": 65,
+    "industries": ["철강", "철강·금속"],
+    "stocks": [
+      {"corp_code": "00155319", "relevance": 100},
+      {"corp_code": "00145880", "relevance": 92},
+      {"corp_code": "00102858", "relevance": 88},
+      {"corp_code": "00106669", "relevance": 84},
+      {"corp_code": "01765265", "relevance": 80}
+    ]
+  }
+]

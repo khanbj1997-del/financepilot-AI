@@ -1,0 +1,62 @@
+[
+  {
+    "corp_code": "00126380",
+    "company_name": "삼성전자",
+    "stock_code": "005930",
+    "industry": "반도체"
+  },
+  {
+    "corp_code": "00164779",
+    "company_name": "SK하이닉스",
+    "stock_code": "000660",
+    "industry": "반도체"
+  },
+  {
+    "corp_code": "00266961",
+    "company_name": "NAVER",
+    "stock_code": "035420",
+    "industry": "인터넷서비스"
+  },
+  {
+    "corp_code": "00258801",
+    "company_name": "카카오",
+    "stock_code": "035720",
+    "industry": "인터넷서비스"
+  },
+  {
+    "corp_code": "00164742",
+    "company_name": "현대자동차",
+    "stock_code": "005380",
+    "industry": "자동차"
+  },
+  {
+    "corp_code": "00106641",
+    "company_name": "기아",
+    "stock_code": "000270",
+    "industry": "자동차"
+  },
+  {
+    "corp_code": "00356361",
+    "company_name": "LG화학",
+    "stock_code": "051910",
+    "industry": "화학"
+  },
+  {
+    "corp_code": "00126362",
+    "company_name": "삼성SDI",
+    "stock_code": "006400",
+    "industry": "배터리"
+  },
+  {
+    "corp_code": "00413046",
+    "company_name": "셀트리온",
+    "stock_code": "068270",
+    "industry": "바이오"
+  },
+  {
+    "corp_code": "00155319",
+    "company_name": "POSCO홀딩스",
+    "stock_code": "005490",
+    "industry": "철강"
+  }
+]

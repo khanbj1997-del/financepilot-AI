@@ -1,0 +1,206 @@
+{
+  "00126380": [
+    {
+      "period": "2024",
+      "metrics": {
+        "revenue": 300871000000000,
+        "operating_income": 32726000000000,
+        "net_income": 33621000000000,
+        "operating_cash_flow": 72978000000000,
+        "fcf": 50000000000000,
+        "total_assets": 514561000000000,
+        "total_liabilities": 92228000000000,
+        "total_equity": 422333000000000,
+        "current_assets": 234000000000000,
+        "current_liabilities": 78000000000000,
+        "interest_expense": 900000000000,
+        "currency": "KRW",
+        "unit": "원"
+      }
+    },
+    {
+      "period": "2023",
+      "metrics": {
+        "revenue": 258935000000000,
+        "operating_income": 6567000000000,
+        "net_income": 15487000000000,
+        "operating_cash_flow": 44137000000000,
+        "fcf": 25000000000000,
+        "total_assets": 455906000000000,
+        "total_liabilities": 92281000000000,
+        "total_equity": 363625000000000,
+        "current_assets": 200000000000000,
+        "current_liabilities": 75000000000000,
+        "interest_expense": 850000000000,
+        "currency": "KRW",
+        "unit": "원"
+      }
+    },
+    {
+      "period": "2022",
+      "metrics": {
+        "revenue": 302231000000000,
+        "operating_income": 43377000000000,
+        "net_income": 55654000000000,
+        "operating_cash_flow": 62181000000000,
+        "fcf": 40000000000000,
+        "total_assets": 448425000000000,
+        "total_liabilities": 93649000000000,
+        "total_equity": 354776000000000,
+        "current_assets": 210000000000000,
+        "current_liabilities": 80000000000000,
+        "interest_expense": 700000000000,
+        "currency": "KRW",
+        "unit": "원"
+      }
+    },
+    {
+      "period": "2021",
+      "metrics": {
+        "revenue": 279605000000000,
+        "operating_income": 51634000000000,
+        "net_income": 39907000000000,
+        "operating_cash_flow": 65105000000000,
+        "fcf": 45000000000000,
+        "total_assets": 426621000000000,
+        "total_liabilities": 121866000000000,
+        "total_equity": 304755000000000,
+        "current_assets": 195000000000000,
+        "current_liabilities": 88000000000000,
+        "interest_expense": 650000000000,
+        "currency": "KRW",
+        "unit": "원"
+      }
+    },
+    {
+      "period": "2020",
+      "metrics": {
+        "revenue": 236807000000000,
+        "operating_income": 35994000000000,
+        "net_income": 26090800000000,
+        "operating_cash_flow": 69788500000000,
+        "fcf": 48000000000000,
+        "total_assets": 378237000000000,
+        "total_liabilities": 102093000000000,
+        "total_equity": 276144000000000,
+        "current_assets": 180000000000000,
+        "current_liabilities": 76000000000000,
+        "interest_expense": 600000000000,
+        "currency": "KRW",
+        "unit": "원"
+      }
+    }
+  ],
+  "00164779": [
+    {
+      "period": "2024",
+      "metrics": {
+        "revenue": 66000000000000,
+        "operating_income": 23000000000000,
+        "net_income": 20000000000000,
+        "operating_cash_flow": 28000000000000,
+        "fcf": 10000000000000,
+        "total_assets": 120000000000000,
+        "total_liabilities": 45000000000000,
+        "total_equity": 75000000000000,
+        "current_assets": 50000000000000,
+        "current_liabilities": 20000000000000,
+        "interest_expense": 800000000000,
+        "currency": "KRW",
+        "unit": "원"
+      }
+    },
+    {
+      "period": "2023",
+      "metrics": {
+        "revenue": 32766000000000,
+        "operating_income": -7730000000000,
+        "net_income": -9112000000000,
+        "operating_cash_flow": 4000000000000,
+        "fcf": -8000000000000,
+        "total_assets": 100000000000000,
+        "total_liabilities": 42000000000000,
+        "total_equity": 58000000000000,
+        "current_assets": 40000000000000,
+        "current_liabilities": 18000000000000,
+        "interest_expense": 900000000000,
+        "currency": "KRW",
+        "unit": "원"
+      }
+    },
+    {
+      "period": "2022",
+      "metrics": {
+        "revenue": 44621600000000,
+        "operating_income": 6806500000000,
+        "net_income": 2230000000000,
+        "operating_cash_flow": 12000000000000,
+        "fcf": 2000000000000,
+        "total_assets": 95000000000000,
+        "total_liabilities": 40000000000000,
+        "total_equity": 55000000000000,
+        "current_assets": 38000000000000,
+        "current_liabilities": 17000000000000,
+        "interest_expense": 700000000000,
+        "currency": "KRW",
+        "unit": "원"
+      }
+    }
+  ],
+  "00266961": [
+    {
+      "period": "2024",
+      "metrics": {
+        "revenue": 10700000000000,
+        "operating_income": 2000000000000,
+        "net_income": 1800000000000,
+        "operating_cash_flow": 2500000000000,
+        "fcf": 1800000000000,
+        "total_assets": 30000000000000,
+        "total_liabilities": 8000000000000,
+        "total_equity": 22000000000000,
+        "current_assets": 12000000000000,
+        "current_liabilities": 4000000000000,
+        "interest_expense": 50000000000,
+        "currency": "KRW",
+        "unit": "원"
+      }
+    },
+    {
+      "period": "2023",
+      "metrics": {
+        "revenue": 9670000000000,
+        "operating_income": 1490000000000,
+        "net_income": 1010000000000,
+        "operating_cash_flow": 2000000000000,
+        "fcf": 1400000000000,
+        "total_assets": 28000000000000,
+        "total_liabilities": 7500000000000,
+        "total_equity": 20500000000000,
+        "current_assets": 11000000000000,
+        "current_liabilities": 3800000000000,
+        "interest_expense": 45000000000,
+        "currency": "KRW",
+        "unit": "원"
+      }
+    },
+    {
+      "period": "2022",
+      "metrics": {
+        "revenue": 8220000000000,
+        "operating_income": 1300000000000,
+        "net_income": 760000000000,
+        "operating_cash_flow": 1600000000000,
+        "fcf": 1000000000000,
+        "total_assets": 25000000000000,
+        "total_liabilities": 7000000000000,
+        "total_equity": 18000000000000,
+        "current_assets": 10000000000000,
+        "current_liabilities": 3500000000000,
+        "interest_expense": 40000000000,
+        "currency": "KRW",
+        "unit": "원"
+      }
+    }
+  ]
+}
